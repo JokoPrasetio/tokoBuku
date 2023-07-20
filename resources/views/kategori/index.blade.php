@@ -1,5 +1,5 @@
-@extends('layouts.main')
-@section('content')
+@extends('layouts.content')
+@section('body_content')
     <main>
         <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
             <div class="container-xl-4">
