@@ -34,11 +34,6 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $uid = (new helperController)->getUid();
-        // $data = [
-        //     'uid' => $uid,
-        //     'name' => request('name'),
-        //     'description' => request('description')
-        // ];
         $data = $request->validate([
             'name' => 'required',
             'description' => 'required'
@@ -46,7 +41,7 @@ class categoryController extends Controller
         $data['uid'] = $uid;
         // dd($data);
         category::create($data);
-        return redirect('/category');
+        return redirect('/category')->with(['alertSuccess' => 'Successfuly create category']);
     }
 
     /**
@@ -76,8 +71,14 @@ class categoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(category $category)
     {
-        //
+        $category->delete();
+        return back()->with(['alertSuccess' => 'Successfully delete category']);
+    }
+
+    public function dataTable()
+    {
+        return category::all();
     }
 }

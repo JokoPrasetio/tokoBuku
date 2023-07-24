@@ -22,3 +22,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/category', categoryController::class);
+Route::get('/datatable/category', [categoryController::class, 'dataTable']);

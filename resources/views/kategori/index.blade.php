@@ -21,11 +21,13 @@
         <div class="card mb-4">
             <div class="card-header">List Kategori</div>
             <div class="card-body">
-                <button class="btn btn-success btn-xl btn-icon position-fixed end-0 me-5 lift floating-button bottom-0 mb-5" type="button" data-bs-toggle="modal" data-bs-target="#add_kategori">
+                <button class="btn btn-success btn-xl btn-icon position-fixed end-0 me-5 lift floating-button bottom-0 mb-5" type="button" data-bs-toggle="modal" data-bs-target="#add_kategori" style="z-index: 99999;">
                     <i class="fas fa-plus fa-fw"></i>
                 </button>
+                
                 <div class="container">
-                    <table></table>
+                    @include('layouts.alert')
+                    <table id="list_table_category" with="100%"></table>
                 </div>
             </div>
         </div>
@@ -33,4 +35,9 @@
  </main>
 
  @include('kategori.modal.add_categori_modal')
+ @include('kategori.modal.delete_categori_modal')
+
+ <script src="/js/category/_init.js"></script>
+ <script src="/js/category/dt.js"></script>
+ <script src="/js/category/delete.js"></script>
 @endsection
