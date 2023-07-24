@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\helper\helperController;
+use App\Models\category;
 use Illuminate\Http\Request;
 
 class categoryController extends Controller
@@ -31,7 +33,20 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $uid = (new helperController)->getUid();
+        // $data = [
+        //     'uid' => $uid,
+        //     'name' => request('name'),
+        //     'description' => request('description')
+        // ];
+        $data = $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+        $data['uid'] = $uid;
+        // dd($data);
+        category::create($data);
+        return redirect('/category');
     }
 
     /**

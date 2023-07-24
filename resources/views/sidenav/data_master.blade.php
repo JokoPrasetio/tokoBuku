@@ -1,27 +1,28 @@
-<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
-    <div class="offcanvas-lg offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+<div class="sidenav-menu-heading">Data Master</div>
+
+{{-- menu --}}
+<a href="javascript:void(0)" class="nav-link {{ Request::is('category') || Request::is('book') ? '' : 'collapsed'}} " data-bs-toggle="collapse" data-bs-target="#collapseLayoutsFirst" aria-expanded="false" aria-controls="collapseLayoutsFirst">
+   <a class="nav-link {{ Request::is('user') || Request::is('familiesdata') || Request::is('marital_status') || Request::is('employee_status') || Request::is('location') ? '' : 'collapsed' }}"
+        href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsFirst" aria-expanded="false"
+        aria-controls="collapseLayoutsFirst">
+        <div class="nav-link-icon"><i class="fa-solid fa-users"></i></div>
+        Data Master
+        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+    </a>
+
+<div class="collapse" id="collapseLayoutsFirst" data-bs-parent="#accordionSidenav">
+  <nav class="sidenav-menu-nested nav accordion" id="accordionSidenav">
+    <a href="/category" class="nav-link {{ Request::is('category') ? 'active' : '' }}">
+      <div class="nav-link-icon">
+        <i class="fa-solid fa-bookmark"></i>
       </div>
-      <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-1 mb-1 text-body-secondary text-uppercase fw-bold">
-            <span>Data Master</span>
-          </h6>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link " href="#">
-          
-             Buku
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{Request::is('category') ? 'active' : ''}} " href="/category">
-              Kategori
-            </a>
-          </li>
-        </ul>
-       
+      Kategori
+    </a>
+    <a href="#" class="nav-link">
+      <div class="nav-link-icon">
+        <i class="fa-solid fa-book"></i>
       </div>
-    </div>
-  </div>
+      Buku
+    </a>
+  </nav>
+</div>

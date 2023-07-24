@@ -13,7 +13,7 @@ class category extends Model
 
     protected $table = 'category';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function getRouteKeyName()
     {
