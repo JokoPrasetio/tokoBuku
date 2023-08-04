@@ -23,9 +23,13 @@ listDataTableCategory.bootstrapTable({
             sortable: true,
         },
         {
-            title: "Deskripsi",
-            field: "description",
-            sortable: true
+            title: "Image",
+            field: "uid",
+            sortable: true,
+            formatter:(value, row) => {
+                const imageUrl='/assets/img/category/' + row.image;
+                return '<a href="'+ imageUrl +'" class="badge bg-info text-decoration-none" target="_blank">Image</a>'
+            }
         },
         {
             title: "Action",
@@ -38,9 +42,10 @@ listDataTableCategory.bootstrapTable({
                 const obj = encodeURIComponent(JSON.stringify(fields));
 
                 let buttons = "";
+                
                 buttons += `
-                    <button class="btn btn-datatable btn-icon btn-transparent-dark my-auto" onclick="deleteCategory('${row.uid}', '${row.name}')" data-bs-toggle ="tooltip" data-bs-placement="top" data-bs-title="delete">
-                    <i class="far fa-trash-can fa-fw"></i>
+                    <button class="badge bg-danger" style="border:none" onclick="deleteCategory('${row.uid}', '${row.name}')" data-bs-toggle ="tooltip" data-bs-placement="top" data-bs-title="delete">
+                    Delete
                     </button>
                 `
                 return `

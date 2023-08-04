@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('uid')->unique();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->text('description');
         });
     }
 
