@@ -9,7 +9,8 @@
     <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
 
-<div class="collapse {{ Request::is('category') ? 'show' : ''}}" id="collapseLayoutsFirst" data-bs-parent="#accordionSidenav">
+<div class="collapse {{ Request::is('category') ? 'show' : '' }}" id="collapseLayoutsFirst"
+    data-bs-parent="#accordionSidenav">
     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenav">
         <a href="/category" class="nav-link {{ Request::is('category') ? 'active' : '' }}">
             <div class="nav-link-icon">
