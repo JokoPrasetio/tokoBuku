@@ -16,7 +16,7 @@
             <div class="nav-link-icon">
                 <i class="fa-solid fa-bookmark"></i>
             </div>
-            Kategori ni
+            Kategori
         </a>
         <a href="#" class="nav-link">
             <div class="nav-link-icon">
