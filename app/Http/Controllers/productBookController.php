@@ -81,7 +81,7 @@ class productBookController extends Controller
         $data = [
             'title' => 'Edit Product Book | Joko Prasetio',
             'productBook' => $productBook[0],
-            'categoryes' => $category,
+            'categories' => $category,
         ];
         return view('productBook.edit', $data);
     }
@@ -89,9 +89,39 @@ class productBookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, productBook $uid)
     {
-        //
+        // dd($request->toArray());
+        // Validate the form data   
+        $productImage = $uid->toArray();
+        // dd($productImage);
+        $request->validate([
+            'category_uid' => 'required',
+            'name_produk' => 'required',
+            'amount' => 'required',
+            'title' => 'required',
+            'address' => 'required',
+            'price' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpeg|max:2048',
+        ]);
+        $data = [
+            'category_uid' => $request->input('category_uid'),
+            'name_produk' => $request->input('name_produk'),
+            'amount' => $request->input('amount'),
+            'title' => $request->input('title'),
+            'address' => $request->input('address'),
+            'price' => $request->input('price'),
+        ];
+        if ($request->hasFile('image')) {
+            Storage::disk('image_product')->delete($productImage['image']);
+            $img = request()->file('image');
+            $imgName = Str::random(40) . '.' . $img->getClientOriginalExtension();
+            Storage::disk('image_product')->put($imgName, file_get_contents($img));
+            $data['image'] = $imgName;
+        }
+        // dd($data);
+        $uid->update($data);
+        return redirect('/product-book')->with(['alertSuccess' => 'Successfuly Updated Product Book']);
     }
 
     /**

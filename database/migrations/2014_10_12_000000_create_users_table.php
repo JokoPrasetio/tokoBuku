@@ -41,6 +41,12 @@ return new class extends Migration
             $table->integer('price');
             $table->foreign(['category_uid'])->references(['uid'])->on('category');
         });
+
+        Schema::create('access_level', function (Blueprint $table) {
+            $table->id();
+            $table->string('uid')->unique();
+            $table->string('name');
+        });
     }
 
     /**
@@ -50,5 +56,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('category');
+        Schema::dropIfExists('access_level');
     }
 };

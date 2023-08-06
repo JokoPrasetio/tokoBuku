@@ -28,4 +28,5 @@ Route::get('/datatable/category', [categoryController::class, 'dataTable']);
 
 // Route Produk
 Route::resource('/product-book', productBookController::class);
+Route::put('/product-book/{uid}/edit', [productBookController::class, 'update']);
 Route::get('/datatable/product-book', [productBookController::class, 'dataTable']);
