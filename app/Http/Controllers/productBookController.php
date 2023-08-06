@@ -73,10 +73,15 @@ class productBookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $uid)
     {
+        // dd($uid);
+        $productBook = productBook::where('uid', $uid)->get()->toArray();
+        $category = category::all();
         $data = [
-            'title' => 'Edit Product Book | Joko Prasetio'
+            'title' => 'Edit Product Book | Joko Prasetio',
+            'productBook' => $productBook[0],
+            'categoryes' => $category,
         ];
         return view('productBook.edit', $data);
     }
