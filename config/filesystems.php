@@ -63,6 +63,13 @@ return [
             'visibility' => 'public'
         ],
 
+        'image_product' => [
+            'driver' => 'local',
+            'root' => public_path('assets') . '/img/productBook',
+            'url' => env('APP_URL') . '/assets/img/productBook',
+            'visibility' => 'public'
+        ],
+
     ],
 
     /*

@@ -27,6 +27,20 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->nullable();
         });
+
+        Schema::create('product_book', function (Blueprint $table) {
+            $table->id();
+            $table->string('uid')->unique();
+            $table->string('category_uid');
+            $table->string('name_produk');
+            $table->string('image');
+            $table->integer('amount');
+            $table->string('title');
+            $table->string('address');
+            $table->string('deskripsi');
+            $table->integer('price');
+            $table->foreign(['category_uid'])->references(['uid'])->on('category');
+        });
     }
 
     /**
