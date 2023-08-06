@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\productBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index', [
-        "title" => "Toko Buku",
+        "title" => "Toko Buku | Joko Prasetio",
     ]);
 });
 
+// Route Category
 Route::resource('/category', categoryController::class);
 Route::get('/datatable/category', [categoryController::class, 'dataTable']);
+
+// Route Produk
+Route::resource('/product-book', productBookController::class);
+Route::get('/datatable/product-book', [productBookController::class, 'dataTable']);

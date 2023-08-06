@@ -10,7 +10,7 @@
     <title>{{ $title }}</title>
 
     {{-- Website icon --}}
-    <link rel="icon" type="image/x-icon" href="/assets/img/LOGO_MEDIALYS_ICON.png" style="height: 7rem" />
+
 
     {{-- Important styles --}}
     <link rel="stylesheet" href="/css/datatables.css" />
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/dropdowns.css" />
 
     {{-- Important scripts --}}
-    <script src="/js/scripts.js"></script>
+    {{-- <script src="/js/scripts.js"></script> --}}
 
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -127,11 +127,7 @@
     <script>
         const _APP_URL = {!! '"' . env('APP_URL') . '"' !!}
     </script>
-    <script src="/js/datepicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/orgchart@3.8.0/dist/js/jquery.orgchart.min.js"></script>
-
-    {{-- Custom styles --}}
-    >
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
         integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous">
