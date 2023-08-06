@@ -23,15 +23,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="/product-book/{{ $productBook['uid'] }}/edit" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="form-floating mb-3">
                                     <select name="category_uid" id="category_uid" class="form-control selectpicker" required
                                         data-live-search="true">
-                                        <option disabled selected>Select Category</option>
-                                        <option disabled selected>Select Category</option>
-                                        @foreach ($categoryes as $item)
+                                        <option disabled>Select Category</option>
+                                        @foreach ($categories as $item)
                                             <option value="{{ $item->uid }}"
                                                 {{ $productBook['category_uid'] === $item->uid ? 'selected' : '' }}>
                                                 {{ $item->name }}</option>
@@ -40,47 +39,47 @@
                                     <label for="category_uid">Category</label>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingInput" class="small mb-1">Name Produk</label>
+                                    <label for="name_produk" class="small mb-1">Name Produk</label>
                                     <input type="text" value="{{ old('name_produk', $productBook['name_produk']) }}"
-                                        class="form-control" name="name_produk">
+                                        class="form-control" name="name_produk" id="name_produk">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingInput" class="small mb-1">Amount Produk</label>
+                                    <label for="amount" class="small mb-1">Amount Produk</label>
                                     <input type="number" value="{{ old('amount', $productBook['amount']) }}"
-                                        class="form-control" name="amount">
+                                        class="form-control" name="amount" id="amount">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingInput" class="small mb-1">Title Produk</label>
+                                    <label for="title" class="small mb-1">Title Produk</label>
                                     <input type="text" value="{{ old('title', $productBook['title']) }}"
-                                        class="form-control" name="title">
+                                        class="form-control" name="title" id="title">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingInput" class="small mb-1">Address Produk</label>
+                                    <label for="address" class="small mb-1">Address Produk</label>
                                     <input type="text" value="{{ old('address', $productBook['address']) }}"
-                                        class="form-control" name="address">
+                                        class="form-control" name="address" id="address">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floatingInput" class="small mb-1">Price Produk</label>
+                                    <label for="price" class="small mb-1">Price Produk</label>
                                     <input type="text" value="{{ old('price', $productBook['price']) }}"
-                                        class="form-control" name="price">
+                                        class="form-control" name="price" id="price">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputFile" class="small mb-1">Image</label>
+                                    <label for="image" class="small mb-1">Image</label>
                                     @if ($productBook['image'])
                                         <input type="file" name="image" id="image" class="form-control"
-                                            value="{{ old('image', $productBook['image']) }}" onchange="previewImage()"
-                                            accept="image/*">
+                                            onchange="previewImage()" accept="image/*">
                                         <img src="/assets/img/productBook/{{ $productBook['image'] }}"
                                             alt="{{ $productBook['image'] }}"
                                             class="img-preview img-fluid mb-3 col-sm-5 mt-2"
-                                            style="width: 350px; height:250px; ">
+                                            style="width: 350px; height: 250px;">
                                     @else
                                         <input type="file" name="image" id="image" class="form-control"
                                             onchange="previewImage()" accept="image/*" required>
-                                        <img class="img-preview img-fluid mt-3 cool-sm-5"
-                                            style="width: 350px; height:250px; display:none;">
+                                        <img class="img-preview img-fluid mt-3 col-sm-5"
+                                            style="width: 350px; height: 250px; display: none;">
                                     @endif
                                 </div>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
                     </div>
